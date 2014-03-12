@@ -85,7 +85,7 @@ public class VarastoTest {
     }
     
     @Test
-    public void otetaanEnemmänKuinOn() {
+    public void otetaanEnemmanKuinOn() {
         varasto.lisaaVarastoon(5);
         
         assertEquals(5, varasto.otaVarastosta(10), vertailuTarkkuus);
