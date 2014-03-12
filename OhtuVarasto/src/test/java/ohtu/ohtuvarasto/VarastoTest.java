@@ -66,13 +66,39 @@ public class VarastoTest {
     }
 
     @Test
+    public void varastoonLiikaa() {
+        varasto.lisaaVarastoon(20);
+
+        assertEquals(0, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void negatiivinenLisays() {
+        varasto.lisaaVarastoon(-50);
+
+        assertEquals(10, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void negatiivinenOtto() {
+        assertEquals(0.0, varasto.otaVarastosta(-50), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void otetaanEnemmänKuinOn() {
+        varasto.lisaaVarastoon(5);
+        
+        assertEquals(5, varasto.otaVarastosta(10), vertailuTarkkuus);
+    }
+
+    @Test
     public void konstr() {
         varasto = new Varasto(-1);
         varasto = new Varasto(0);
-        varasto = new Varasto(1,1);
-        varasto = new Varasto(1,2);
-        varasto = new Varasto(-1,2);
-        varasto = new Varasto(-1,-1);
+        varasto = new Varasto(1, 1);
+        varasto = new Varasto(1, 2);
+        varasto = new Varasto(-1, 2);
+        varasto = new Varasto(-1, -1);
         varasto.toString();
     }
 }
